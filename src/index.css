@@ -4,39 +4,37 @@
 
 @layer base {
   :root {
-    /* Bảng màu OneTalk Tím Tươi Sáng - Dark Mode */
-    --background: 240 35% 13%;      /* Nền tím than đậm #1A1A2E */
-    --foreground: 240 100% 94%;     /* Chữ màu lavender rất nhạt #E0E0FF */
+    /* Bảng màu OneTalk Tím dịu - Giao diện duy nhất */
+    --background: 0 0% 100%;         /* Nền trắng #FFFFFF */
+    --foreground: 259 58% 25%;       /* Chữ màu tím than đậm */
 
-    --card: 240 25% 20%;            /* Nền card tối hơn một chút #24243E */
-    --card-foreground: 240 100% 94%;
+    --card: 0 0% 100%;
+    --card-foreground: 259 58% 25%;
  
-    --popover: 240 25% 18%;
-    --popover-foreground: 240 100% 94%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 259 58% 25%;
  
-    --primary: 255 100% 65%;        /* Màu primary tím sáng #7C4DFF */
-    --primary-foreground: 255 100% 98%; /* Chữ trắng trên nền primary */
+    --primary: 258 51% 68%;         /* Màu chủ đạo tím dịu #7E57C2 */
+    --primary-foreground: 0 0% 100%; /* Chữ trắng trên nền primary */
  
-    --secondary: 240 25% 30%;       /* Button phụ */
-    --secondary-foreground: 240 100% 94%;
+    --secondary: 264 30% 96%;       /* Nền phụ màu tím rất nhạt */
+    --secondary-foreground: 259 58% 30%;
  
-    --muted: 240 25% 25%;
-    --muted-foreground: 240 20% 65%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 240 3.8% 46.1%;
  
-    --accent: 255 100% 75%;          /* Màu nhấn sáng hơn một chút */
-    --accent-foreground: 240 35% 13%;
+    --accent: 341 79% 86%;          /* Màu nhấn hồng đào #F8BBD0 */
+    --accent-foreground: 341 50% 25%;
  
-    --destructive: 0 84% 60%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
- 
-    --border: 240 25% 30%;
-    --input: 240 25% 28%;
-    --ring: 255 100% 65%;
+
+    --border: 0 0% 89.8%;           /* Border xám nhạt #E0E0E0 */
+    --input: 0 0% 92.8%;
+    --ring: 258 51% 68%;
  
     --radius: 0.75rem;
   }
-
-  /* Xóa khối .dark đi vì chúng ta chỉ dùng một theme duy nhất */
 }
  
 @layer base {
@@ -44,7 +42,6 @@
     @apply border-border;
   }
   body {
-    /* Áp dụng nền gradient nhẹ nhàng */
-    @apply bg-gradient-to-br from-background to-[#161625] text-foreground;
+    @apply bg-background text-foreground;
   }
 }
