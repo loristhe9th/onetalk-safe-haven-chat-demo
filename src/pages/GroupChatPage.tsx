@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/hooks/use-toast';
 import { Send, ArrowLeft, Loader2, Users } from 'lucide-react';
-import Mascot from '@/components/ui/Mascot';
+import Logo from '@/components/ui/Logo'; // Thay Mascot bằng Logo
 
 // Định nghĩa kiểu dữ liệu cho tin nhắn nhóm
 interface GroupMessage {
@@ -164,7 +164,8 @@ export default function GroupChatPage() {
             {/* Hiển thị avatar và nickname cho người khác */}
             {msg.sender_id !== profile?.id && (
                 <div className="flex flex-col items-center shrink-0">
-                    <Mascot variant="happy" className="w-10 h-10" />
+                    {/* === THAY THẾ MASCOT BẰNG LOGO === */}
+                    <Logo className="w-10 h-10" />
                     <span className="text-xs text-muted-foreground mt-1 max-w-[60px] truncate">{msg.profiles?.nickname}</span>
                 </div>
             )}
