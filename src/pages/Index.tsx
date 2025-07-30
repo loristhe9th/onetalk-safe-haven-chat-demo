@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Heart, Shield, Users } from 'lucide-react';
-import Mascot from '@/components/ui/Mascot'; // Import component Mascot
+import Logo from '@/components/ui/Logo'; // Thay Mascot bằng Logo
 
 const Index = () => {
   const navigate = useNavigate();
@@ -9,12 +9,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/50 flex flex-col items-center justify-center text-center p-4">
       <div className="max-w-2xl">
-
-        {/* --- Phần Header --- */}
         <header className="mb-8">
-          {/* === THAY THẾ ICON HEART BẰNG MASCOT === */}
-          <Mascot variant="happy" className="w-24 h-24 mx-auto mb-6" />
-          
+          {/* Thay thế Mascot bằng Logo */}
+          <Logo className="w-24 h-24 mx-auto mb-6" />
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
             Chào mừng đến với OneTalk
           </h1>
