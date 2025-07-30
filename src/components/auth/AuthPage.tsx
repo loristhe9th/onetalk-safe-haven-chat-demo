@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "@/hooks/use-toast";
 import { Eye, EyeOff, User, Lock, Users, Shield, Heart, Loader2 } from "lucide-react";
-import Mascot from '@/components/ui/Mascot';
+import Logo from '@/components/ui/Logo'; // Thay Mascot bằng Logo
 
 const DUMMY_DOMAIN = "@onetalk.app";
 
@@ -51,7 +51,6 @@ export default function AuthPage() {
     }
 
     setIsLoading(true);
-    // ... (logic xử lý submit không đổi)
     try {
       const email = `${formData.nickname}${DUMMY_DOMAIN}`;
       let error = null;
@@ -85,7 +84,8 @@ export default function AuthPage() {
     <div className="min-h-screen flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-            <Mascot variant="happy" className="w-24 h-24 mx-auto mb-4" />
+            {/* === THAY THẾ MASCOT BẰNG LOGO === */}
+            <Logo className="w-24 h-24 mx-auto mb-4" />
             <h1 className="text-4xl font-bold text-foreground mb-2">Welcome to OneTalk</h1>
             <p className="text-lg text-muted-foreground">Your safe haven for anonymous support</p>
         </div>
