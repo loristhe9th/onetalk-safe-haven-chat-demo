@@ -42,8 +42,8 @@ export default function ChatWaitingRoom() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-background">
       <div className="text-center p-4">
-        {/* === THAY THẾ ICON CŨ BẰNG MASCOT === */}
-        <Mascot variant="waiting" className="w-32 h-32 mx-auto mb-6 animate-pulse" />
+        {/* === THAY THẾ ICON CŨ BẰNG LOGO === */}
+        <Logo className="w-32 h-32 mx-auto mb-6 animate-pulse" />
         
         <h1 className="text-3xl font-bold mb-2">Finding a listener...</h1>
         <p className="text-muted-foreground mb-4">
