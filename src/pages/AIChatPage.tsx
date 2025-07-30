@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/hooks/use-toast';
 import { Send, ArrowLeft, Loader2 } from 'lucide-react';
-import Mascot from '@/components/ui/Mascot';
+import Logo from '@/components/ui/Logo'; // Thay Mascot bằng Logo
 
 // Định nghĩa kiểu dữ liệu cho tin nhắn
 interface Message {
@@ -116,7 +116,8 @@ export default function AIChatPage() {
               <ArrowLeft className="w-5 h-5" />
             </Button>
             <div className="flex items-center space-x-2">
-                <Mascot variant="happy" className="w-10 h-10" />
+                {/* === THAY THẾ MASCOT BẰNG LOGO === */}
+                <Logo className="w-10 h-10" />
                 <h2 className="text-lg font-bold">AI Listener</h2>
             </div>
         </div>
@@ -131,7 +132,8 @@ export default function AIChatPage() {
             }`}
           >
             {msg.role === 'model' && (
-                <Mascot variant="listening" className="w-10 h-10 shrink-0" />
+                // === THAY THẾ MASCOT BẰNG LOGO ===
+                <Logo className="w-10 h-10 shrink-0" />
             )}
             <div
               className={`max-w-xs md:max-w-md p-3 rounded-lg ${
@@ -146,7 +148,8 @@ export default function AIChatPage() {
         ))}
         {isLoading && (
             <div className="flex items-end gap-2 justify-start">
-                <Mascot variant="typing" className="w-10 h-10 opacity-70" />
+                {/* === THAY THẾ MASCOT BẰNG LOGO === */}
+                <Logo className="w-10 h-10 opacity-70 animate-pulse" />
                 <div className="p-3 rounded-lg bg-muted animate-pulse">
                     <p className="text-sm italic text-muted-foreground">is thinking...</p>
                 </div>
