@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/hooks/use-toast';
 import { Send, LogOut, Loader2, Clock, PlusCircle } from 'lucide-react';
-import Mascot from '@/components/ui/Mascot';
+import Logo from '@/components/ui/Logo'; // Thay Mascot bằng Logo
 import {
   AlertDialog,
   AlertDialogAction,
@@ -78,14 +78,11 @@ export default function ChatSessionPage() {
     }
   }, [sessionId, profile, sessionInfo, navigate]);
 
-  // useEffect để lấy dữ liệu ban đầu
   useEffect(() => {
     if (!sessionId || !profile) return;
     
     const fetchInitialData = async () => {
       setLoading(true);
-
-      // === SỬA LỖI Ở ĐÂY: GỌI HÀM LẤY GIỜ SERVER ===
       const { data: serverNow, error: timeError } = await supabase.rpc('get_server_time');
       if (timeError) {
           toast({ title: "Error", description: "Could not sync with server time.", variant: "destructive" });
@@ -119,7 +116,6 @@ export default function ChatSessionPage() {
       const startTime = new Date(sessionData.created_at).getTime();
       const totalDurationSeconds = (sessionData.duration_minutes + (sessionData.extended_duration_minutes || 0)) * 60;
       
-      // === SỬA LỖI Ở ĐÂY: SỬ DỤNG GIỜ SERVER ĐỂ TÍNH TOÁN ===
       const elapsedSeconds = Math.floor((now - startTime) / 1000);
       setTimeLeft(totalDurationSeconds - elapsedSeconds);
       
@@ -129,7 +125,6 @@ export default function ChatSessionPage() {
     fetchInitialData();
   }, [sessionId, navigate, profile]);
 
-  // useEffect cho bộ đếm thời gian
   useEffect(() => {
     if (timeLeft === null) return;
     if (timeLeft <= 0) {
@@ -143,7 +138,6 @@ export default function ChatSessionPage() {
     return () => clearInterval(timer);
   }, [timeLeft, handleEndChat]);
   
-  // useEffect cho Realtime
   useEffect(() => {
     if (!sessionId || !otherUser) return;
     const channel = supabase.channel(`chat-session-${sessionId}`)
@@ -251,7 +245,8 @@ export default function ChatSessionPage() {
     <div className="flex flex-col h-screen bg-background">
       <header className="flex items-center justify-between p-4 border-b shrink-0">
         <div className="flex items-center space-x-3">
-            <Mascot variant="talking" className="w-10 h-10" />
+            {/* === THAY THẾ MASCOT BẰNG LOGO === */}
+            <Logo className="w-10 h-10" />
             <div>
                 <h2 className="text-lg font-bold">Chatting with {otherUser?.nickname || '...'}</h2>
                 <p className="text-xs text-muted-foreground">Session: {sessionId?.substring(0, 8)}</p>
@@ -279,7 +274,8 @@ export default function ChatSessionPage() {
         {messages.map((msg) => (
           <div key={msg.id} className={`flex items-end gap-2 ${ msg.sender_id === profile?.id ? 'justify-end' : 'justify-start' }`}>
             {msg.sender_id !== profile?.id && (
-                <Mascot variant="listening" className="w-8 h-8" />
+                // === THAY THẾ MASCOT BẰNG LOGO ===
+                <Logo className="w-8 h-8" />
             )}
             <div className={`max-w-xs md:max-w-md p-3 rounded-lg ${ msg.sender_id === profile?.id ? 'bg-primary text-primary-foreground rounded-br-none' : 'bg-muted rounded-bl-none' }`}>
               <p className="text-sm break-words">{msg.content}</p>
@@ -289,7 +285,8 @@ export default function ChatSessionPage() {
         ))}
         {isTyping && (
           <div className="flex items-end gap-2 justify-start">
-              <Mascot variant="listening" className="w-8 h-8 opacity-70" />
+              {/* === THAY THẾ MASCOT BẰNG LOGO === */}
+              <Logo className="w-8 h-8 opacity-70" />
               <div className="p-3 rounded-lg bg-muted animate-pulse">
                   <p className="text-sm italic text-muted-foreground">is typing...</p>
               </div>
